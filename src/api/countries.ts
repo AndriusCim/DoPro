@@ -1,10 +1,10 @@
-import { useApi } from 'hooks/useApi';
-
-export interface countryInfo {
+export interface CountryInfo {
     flag: string;
+    lat: number;
+    long: number;
 }
 
-export interface coronaStatusDto {
+export interface CoronaStatusDto {
     country: string;
     cases: number;
     deaths: number;
@@ -15,10 +15,10 @@ export interface coronaStatusDto {
     tests: number;
     critical: number;
     deathsPerOneMillion: number;
-    countryInfo: countryInfo
+    countryInfo: CountryInfo
 }
 
-export interface coronaStatus {
+export interface CoronaStatus {
     countryName: string;
     cases: number;
     deaths: number;
@@ -29,10 +29,10 @@ export interface coronaStatus {
     tests: number;
     critical: number;
     deathsPerOneMillion: number;
-    countryInfo: countryInfo
+    countryInfo: CountryInfo
 }
 
-export const mapCoronaStatusDtoToModel = (dto: coronaStatusDto): coronaStatus => ({
+export const mapCoronaStatusDtoToModel = (dto: CoronaStatusDto): CoronaStatus => ({
     countryName: dto.country,
     cases: dto.cases,
     deaths: dto.deaths,

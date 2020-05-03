@@ -1,70 +1,33 @@
-import React from 'react';
+import React, { useState } from 'react';
 
-import { Table, Input } from 'antd';
-
-import { countryInfo } from '../api/countries';
+import { useGraph } from '../hooks/useGraph';
 import { useCountries } from '../hooks/useCountries';
+import CountriesTable from '../components/CountriesTable';
+import Header from '../components/Header';
+import Map from '../components/Map';
+import CountriesStatuses from '../components/CountriesStatuses';
+import { Spinner } from 'evergreen-ui';
+import Graph from '../components/Graph';
 
 const Home: React.FC = () => {
-    const { coronaStats, loading, onSearch } = useCountries();
-    const columns = [
-        {
-            title: 'Flag',
-            dataIndex: 'countryInfo',
-            key: 'countryInfo',
-            render: ((x: countryInfo) => (<img style={{ width: 30 }} src={x.flag} />))
-        },
-        {
-            title: 'Country',
-            dataIndex: 'country',
-            key: 'country',
-        },
-        {
-            title: 'Cases',
-            dataIndex: 'cases',
-            key: 'cases',
-        },
-        {
-            title: 'Deaths',
-            dataIndex: 'deaths',
-            key: 'deaths',
-        },
-        {
-            title: 'Recovered',
-            dataIndex: 'recovered',
-            key: 'recovered',
-        },
-        {
-            title: 'Today Deaths',
-            dataIndex: 'todayDeaths',
-            key: 'todayDeaths',
-        },
-        {
-            title: 'Today Cases',
-            dataIndex: 'todayCases',
-            key: 'todayCases',
-        },
-        {
-            title: 'Tests per one million',
-            dataIndex: 'testsPerOneMillion',
-            key: 'testsPerOneMillion',
-        },
-        {
-            title: 'Tests',
-            dataIndex: 'tests',
-            key: 'tests',
-        },
-        {
-            title: 'Deaths per one million',
-            dataIndex: 'deathsPerOneMillion',
-            key: 'deathsPerOneMillion',
-        }
-    ];
+    const [selectedCountry, setSelectedCountry] = useState<string>('');
+    const { coronaStats, loading } = useCountries();
+    const { graphInfo, loading: graphLoading } = useGraph(selectedCountry);
 
     return (
         <>
-            <Input.Search onSearch={onSearch} />
-            <Table dataSource={coronaStats} loading={loading} columns={columns} />;
+            <Header />
+            {loading && !coronaStats
+                ? <div style={{ height: 800 }} className="cs-d-flex cs-align-items-center cs-justify-content-center"><Spinner size={50} /></div>
+                : (<div className="cs-d-flex">
+                    <div>
+                        <CountriesStatuses stats={coronaStats} />
+                        <CountriesTable onSelect={setSelectedCountry}/>
+                    </div>
+                    <Map stats={coronaStats} />
+                    <Graph loading={graphLoading} graphInfo={graphInfo} />
+                </div>
+                )}
         </>
     )
 }

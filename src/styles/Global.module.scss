@@ -1,6 +1,319 @@
 @import "./_variables.scss";
+.cs-color-white {
+    color: #fff
+}
 
-h1 {
-    color: $color-1;
-    font-style: italic;
+.cs-color-green {
+    color: #47B881;
+}
+
+.cs-d-block {
+    display: block !important;
+}
+
+.cs-d-none {
+    display: none !important;
+}
+
+.cs-d-flex {
+    display: flex !important;
+}
+
+.cs-flex-column {
+    flex-direction: column !important;
+}
+
+.cs-flex-wrap {
+    flex-wrap: wrap !important;
+}
+
+.cs-justify-content-center {
+    justify-content: center !important;
+}
+
+.cs-justify-content-space-between {
+    justify-content: space-between !important;
+}
+
+.cs-align-items-center {
+    align-items: center !important;
+}
+
+.cs-align-items-flex-end {
+    align-items: flex-end !important;
+}
+
+.cs-align-self-center {
+    align-self: center !important;
+}
+
+.cs-h-100 {
+    height: 100% !important;
+}
+
+.cs-w-100 {
+    width: 100% !important;
+}
+
+.cs-w-50 {
+    width: 50% !important;
+}
+
+.cs-p-sm {
+    padding: 8px !important;
+}
+
+.cs-p-md {
+    padding: 16px !important;
+}
+
+.cs-p-lg {
+    padding: 24px !important;
+}
+
+.cs-px-sm {
+    padding-left: 8px !important;
+    padding-right: 8px !important;
+}
+
+.cs-px-md {
+    padding-left: 16px !important;
+    padding-right: 16px !important;
+}
+
+.cs-px-lg {
+    padding-left: 24px !important;
+    padding-right: 24px !important;
+}
+
+.cs-py-sm {
+    padding-top: 8px !important;
+    padding-bottom: 8px !important;
+}
+
+.cs-py-md {
+    padding-top: 16px !important;
+    padding-bottom: 16px !important;
+}
+
+.cs-py-lg {
+    padding-top: 24px !important;
+    padding-bottom: 24px !important;
+}
+
+.cs-pt-sm {
+    padding-top: 8px !important;
+}
+
+.cs-pt-md {
+    padding-top: 16px !important;
+}
+
+.cs-pt-lg {
+    padding-top: 24px !important;
+}
+
+.cs-pb-sm {
+    padding-bottom: 8px !important;
+}
+
+.cs-pb-lg {
+    padding-bottom: 24px !important;
+}
+
+.cs-mx-auto {
+    margin-left: auto !important;
+    margin-right: auto !important;
+}
+
+.cs-mx-sm {
+    margin-left: 8px !important;
+    margin-right: 8px !important;
+}
+
+.cs-mx-lg {
+    margin-left: 24px !important;
+    margin-right: 24px !important;
+}
+
+.cs-my-md {
+    margin-top: 16px !important;
+    margin-bottom: 16px !important;
+}
+
+.cs-my-lg {
+    margin-top: 24px !important;
+    margin-bottom: 24px !important;
+}
+
+.cs-m-sm {
+    margin: 8px !important;
+}
+
+.cs-mt-auto {
+    margin-top: auto !important;
+}
+
+.cs-mt-sm {
+    margin-top: 8px !important;
+}
+
+.cs-mt-md {
+    margin-top: 16px !important;
+}
+
+.cs-mt-lg {
+    margin-top: 24px !important;
+}
+
+.cs-mb-sm {
+    margin-bottom: 8px !important;
+}
+
+.cs-mb-md {
+    margin-bottom: 16px !important;
+}
+
+.cs-mb-lg {
+    margin-bottom: 24px !important;
+}
+
+.cs-text-left {
+    text-align: left !important;
+}
+
+.cs-text-right {
+    text-align: right !important;
+}
+
+.cs-text-center {
+    text-align: center !important;
+}
+
+.cs-mr-auto {
+    margin-right: auto !important;
+}
+
+.cs-mr-xs {
+    margin-right: 4px !important;
+}
+
+.cs-mr-sm {
+    margin-right: 8px !important;
+}
+
+.cs-mr-md {
+    margin-right: 16px !important;
+}
+
+.cs-ml-auto {
+    margin-left: auto !important;
+}
+
+.cs-ml-sm {
+    margin-left: 8px !important;
+}
+
+.cs-ml-md {
+    margin-left: 16px !important;
+}
+
+.cs-ml-lg {
+    margin-left: 24px !important;
+}
+
+.cs-ml-vlg {
+    margin-left: 32px !important;
+}
+
+.cs-pl-xs {
+    padding-left: 4px !important;
+}
+
+.cs-pl-sm {
+    padding-left: 8px !important;
+}
+
+.cs-pl-md {
+    padding-left: 16px !important;
+}
+
+.cs-pl-lg {
+    padding-left: 24px !important;
+}
+
+.cs-pr-sm {
+    padding-right: 8px !important;
+}
+
+.cs-pr-md {
+    padding-right: 16px !important;
+}
+
+.cs-pr-lg {
+    padding-right: 24px !important;
+}
+
+.cs-float-left {
+    float: left !important;
+}
+
+.cs-float-right {
+    float: right !important;
+}
+
+.leaflet-container {
+    height: 900px;
+    width: 100%;
+}
+
+.footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 335px;
+    background-color: #43af79;
+    color: white;
+    text-align: center;
+  }
+
+.TopBar {
+    z-index: 401 !important;
+    height: 56px;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    padding-left: 16px;
+    padding-right: 16px;
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0;
+    background: #fff;
+    -webkit-box-shadow: 0 0 1px rgba(67, 90, 111, 0.47), 0 2px 4px -2px rgba(67, 90, 111, 0.3);
+    box-shadow: 0 0 1px rgba(67, 90, 111, 0.47), 0 2px 4px -2px rgba(67, 90, 111, 0.3);
+}
+
+.css-nil {
+    /* width */
+    ::-webkit-scrollbar {
+        width: 10px;
+    }
+
+    /* Handle */
+    ::-webkit-scrollbar-thumb {
+        background: #D4EEE2;
+    }
+}
+/* width */
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: #D4EEE2;
+}
+
+.leaflet-popup-tip-container {
+    margin: unset !important;
 }
