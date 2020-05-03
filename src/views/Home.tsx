@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 
-import { useGraph } from '../hooks/useGraph';
 import { useCountries } from '../hooks/useCountries';
 import CountriesTable from '../components/CountriesTable';
 import Header from '../components/Header';
@@ -8,11 +7,11 @@ import Map from '../components/Map';
 import CountriesStatuses from '../components/CountriesStatuses';
 import { Spinner } from 'evergreen-ui';
 import Graph from '../components/Graph';
+import { CoronaStatusDto } from '../api/countries';
 
 const Home: React.FC = () => {
-    const [selectedCountry, setSelectedCountry] = useState<string>('');
+    const [selectedCountry, setSelectedCountry] = useState<CoronaStatusDto | null>(null);
     const { coronaStats, loading } = useCountries();
-    const { graphInfo, loading: graphLoading } = useGraph(selectedCountry);
 
     return (
         <>
@@ -25,7 +24,7 @@ const Home: React.FC = () => {
                         <CountriesTable onSelect={setSelectedCountry}/>
                     </div>
                     <Map stats={coronaStats} />
-                    <Graph loading={graphLoading} graphInfo={graphInfo} />
+                    <Graph selectedCountry={selectedCountry} />
                 </div>
                 )}
         </>

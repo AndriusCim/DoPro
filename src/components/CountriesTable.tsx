@@ -1,9 +1,10 @@
 import React from 'react';
 import { Table, SearchInput, Spinner, Heading, Icon } from 'evergreen-ui'
 import { useCountries } from '../hooks/useCountries';
+import { CoronaStatusDto } from '../api/countries';
 
 interface Props {
-    onSelect: (x: string) => void;
+    onSelect: (x: CoronaStatusDto) => void;
 }
 
 const CountriesTable: React.FC<Props> = ({onSelect}) => {
@@ -36,7 +37,7 @@ const CountriesTable: React.FC<Props> = ({onSelect}) => {
                 </Table.Head>
                 <Table.Body height={730}>
                     {coronaStats.map(x => (
-                        <Table.Row isSelectable onSelect={() => onSelect(x.country)} key={x.country}>
+                        <Table.Row isSelectable onSelect={() => onSelect(x)} key={x.country}>
                             <Table.TextCell><img title={x.country} height={20} src={x.countryInfo.flag} /></Table.TextCell>
                             <Table.TextCell>{x.cases}</Table.TextCell>
                             <Table.TextCell>{x.recovered}</Table.TextCell>
