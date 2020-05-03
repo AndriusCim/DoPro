@@ -5,7 +5,7 @@ import L from 'leaflet';
 
 import { useMap } from '../hooks/useMap';
 import { CoronaStatusDto } from '../api/countries';
-import { Pill, Text, Heading } from 'evergreen-ui';
+import { Pill, Heading } from 'evergreen-ui';
 
 interface Props {
     stats: CoronaStatusDto[] | null
