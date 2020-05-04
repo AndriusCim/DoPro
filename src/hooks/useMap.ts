@@ -1,25 +1,23 @@
-import { CoronaStatusDto } from 'api/countries';
+import { CoronaStatus } from "api/countries";
 
-export const useMap = (stats: CoronaStatusDto[] | null) => {
+export const useMap = (coronaStats: CoronaStatus[] | null) => {
+  const geoJson = {
+    type: "FeatureCollection",
+    features:
+      coronaStats &&
+      coronaStats.map(x => {
+        return {
+          type: "Feature",
+          properties: { ...x },
+          geometry: {
+            type: "Point",
+            coordinates: [x.countryInfo.lat, x.countryInfo.lng]
+          }
+        };
+      })
+  };
 
-    const geoJson = {
-        type: 'FeatureCollection',
-        features: stats && stats.map(x => {
-            const { lat, long: lng } = x.countryInfo;
-            return {
-                type: 'Feature',
-                properties: {
-                    ...x,
-                },
-                geometry: {
-                    type: 'Point',
-                    coordinates: [lat, lng]
-                }
-            }
-        })
-    }
-
-    return {
-        mapData: geoJson,
-    }
-}
+  return {
+    geoJson
+  };
+};

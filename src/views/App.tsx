@@ -1,15 +1,15 @@
-import React from 'react';
+import React from "react";
 
-import Home from './Home';
+import Home from "./Home";
 
-import '../styles/styles.css';
+import "../styles/styles.css";
 
 const App: React.FC = () => {
-    return (
-        <>
-        <Home />
-        </>
-    )
-}
+  return (
+    <>
+      <Home />
+    </>
+  );
+};
 
 export default App;
