@@ -18,12 +18,14 @@ interface CountryInfoDto {
     flag: string;
     lat: number;
     long: number;
+    iso3: string;
 };
 
 export interface CountryInfo {
     flag: string;
     lat: number;
     lng: number;
+    iso: string;
 };
 
 interface CoronaStatusDto {
@@ -57,7 +59,8 @@ export interface CoronaStatus {
 const mapCountryInfoDtoToModel = (dto: CountryInfoDto): CountryInfo => ({
     flag: dto.flag,
     lat: dto.lat,
-    lng: dto.long
+    lng: dto.long,
+    iso: dto.iso3
 });
 
 const mapCoronaStatusByCriteriaDtoToModel = (dto: CoronaStatusByCriteriaDto): CoronaStatusByCriteria => ({
