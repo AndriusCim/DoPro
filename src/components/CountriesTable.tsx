@@ -65,7 +65,7 @@ const CountriesTable: React.FC<Props> = ({ onSelect }) => {
       <div className="footer">
         <Heading size={300}>
           <div className="cs-d-flex cs-align-items-center cs-color-white cs-p-md cs-justify-content-center">
-            <Icon className="cs-pr-sm" icon="info-sign" />
+            <Icon className="cs-pr-sm" icon="info-sign" size={18} />
             Select country to see more details
           </div>
         </Heading>
