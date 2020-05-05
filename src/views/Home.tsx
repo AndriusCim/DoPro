@@ -5,13 +5,12 @@ import { CoronaStatus } from "../api/countries";
 import { useCountries } from "../hooks/useCountries";
 import CountriesStatuses from "../components/CountriesStatuses";
 import CountriesTable from "../components/CountriesTable";
-import Header from "../components/Header";
 import Map from "../components/Map";
 import Graph from "../components/Graph";
-import Spin from '../components/Spin';
+import Spin from "../components/Spin";
 
 const Home: React.FC = () => {
-  const [selectedCountry, setSelectedCountry] =useState<CoronaStatus | null>(null);
+  const [selectedCountry, setSelectedCountry] = useState<CoronaStatus | null>(null);
   const { coronaStats, loading, error } = useCountries();
 
   if (error) {
@@ -20,11 +19,8 @@ const Home: React.FC = () => {
 
   return (
     <>
-      <Header />
       {loading && !coronaStats ? (
-        <div
-          style={{ height: 800 }}
-        >
+        <div style={{ height: 800 }}>
           <Spin />
         </div>
       ) : (
